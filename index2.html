@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="moviebox.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg flex-wrap bg-black navbar-light position-fixed z-1"
+      >
+        <div class="gap-4 d-flex ms-4">
+          <div class="d-flex align-items-center gap-3">
+            <div class="ps-4">
+              <img
+                class="pt-2"
+                src="https://h5-static.aoneroom.com/oneroomStatic/public/_nuxt/web-logo.apJjVir2.svg"
+                alt="logo"
+              />
+            </div>
+            <h3 class="text-light pt-2">MovieBox</h3>
+          </div>
+
+          <div class="search rounded d-flex d-sm-flex d-none d-sm-block">
+            <div class="pt-2">
+              <i class="ri-search-line text-light"></i>
+            </div>
+            <div class="">
+              <input
+                type="text"
+                class="border-0 input search-input"
+                placeholder="Search movies/TV Shows"
+              />
+            </div>
+          </div>
+
+          <div class="pt-2 ps-4 gap-3 d-none d-sm-block d-md-flex d-sm-flex">
+            <div>
+              <button class="btn rounded-pill text-light download-button">
+                <i class="ri-mobile-download-line"></i>
+                download App
+              </button>
+            </div>
+            <div class="">
+              <button class="btn rounded-pill bg-gradient text-light">
+                <i class="ri-history-line"></i>
+                Watch history
+              </button>
+            </div>
+          </div>
+
+          <div class="d-md-none d-sm-block text-light">
+            <i class="ri-history-line"></i>
+          </div>
+        </div>
+        <div
+          class="ms-4 mt-2 mt-lg-0 search-sm rounded d-flex gap-2 d-md-none d-sm-block"
+        >
+          <div class="text-center pt-2">
+            <i class="ri-search-line text-light"></i>
+          </div>
+          <div class="">
+            <input
+              type="text"
+              class="border-0 input search-input-sm"
+              placeholder="Search movies/TV Shows"
+            />
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="pt-5">
+      <div id="sidebar-1" class="mt-5 z-1">
+        <a href="#"><i class="ri-home-5-fill"></i> Home</a>
+        <a href="#">
+          <img
+            src="data:image/svg+xml,%3csvg%20width='18'%20height='18'%20viewBox='0%200%2018%2018'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M4.81072%200.98757C5.09376%200.744961%205.51989%200.77774%205.7625%201.06078L8.0125%203.68578C8.03023%203.70647%208.04648%203.72792%208.06128%203.75H9.93872C9.95352%203.72792%209.96977%203.70647%209.9875%203.68578L12.2375%201.06078C12.4801%200.77774%2012.9062%200.744961%2013.1893%200.98757C13.4723%201.23018%2013.5051%201.65631%2013.2625%201.93935L11.7105%203.75H14.875C15.9796%203.75%2016.875%204.64543%2016.875%205.75V15.25C16.875%2016.3546%2015.9796%2017.25%2014.875%2017.25H3.125C2.02043%2017.25%201.125%2016.3546%201.125%2015.25V5.75C1.125%204.64543%202.02043%203.75%203.125%203.75H6.28949L4.7375%201.93935C4.49489%201.65631%204.52767%201.23018%204.81072%200.98757ZM3.125%205.1H14.875C15.234%205.1%2015.525%205.39102%2015.525%205.75V15.25C15.525%2015.609%2015.234%2015.9%2014.875%2015.9H3.125C2.76601%2015.9%202.475%2015.609%202.475%2015.25V5.75C2.475%205.39102%202.76601%205.1%203.125%205.1Z'%20fill='white'%20fill-opacity='0.6'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M8.62708%208.41919H4.125V9.6027H5.6355V13.2121H7.11658V9.6027H8.62708V8.41919ZM10.5497%208.41919H9L10.8113%2013.2121H12.4166L14.1952%208.41919H12.6912L11.6287%2011.8684L10.5497%208.41919Z'%20fill='white'%20fill-opacity='0.6'/%3e%3c/svg%3e"
+          />
+          TV show</a
+        >
+        <a href="#">
+          <img
+            src="data:image/svg+xml,%3csvg%20width='18'%20height='18'%20viewBox='0%200%2018%2018'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M8.99987%204.45459C8.24714%204.45459%207.63623%205.0655%207.63623%205.81823C7.63623%206.57095%208.24714%207.18186%208.99987%207.18186C9.75259%207.18186%2010.3635%206.57095%2010.3635%205.81823C10.3635%205.0655%209.75259%204.45459%208.99987%204.45459Z'%20fill='white'%20fill-opacity='0.6'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M8.99987%2010.6399C8.24714%2010.6399%207.63623%2011.2508%207.63623%2012.0035C7.63623%2012.7563%208.24714%2013.3672%208.99987%2013.3672C9.75259%2013.3672%2010.3635%2012.7563%2010.3635%2012.0035C10.3635%2011.2508%209.75259%2010.6399%208.99987%2010.6399Z'%20fill='white'%20fill-opacity='0.6'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M12.0922%207.54724C11.3394%207.54724%2010.7285%208.15815%2010.7285%208.91088C10.7285%209.6636%2011.3394%2010.2745%2012.0922%2010.2745C12.8449%2010.2745%2013.4558%209.6636%2013.4558%208.91088C13.4558%208.15815%2012.8449%207.54724%2012.0922%207.54724Z'%20fill='white'%20fill-opacity='0.6'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M5.90758%207.54724C5.15485%207.54724%204.54395%208.15815%204.54395%208.91088C4.54395%209.6636%205.15485%2010.2745%205.90758%2010.2745C6.66031%2010.2745%207.27122%209.6636%207.27122%208.91088C7.27122%208.15815%206.66031%207.54724%205.90758%207.54724Z'%20fill='white'%20fill-opacity='0.6'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M15.525%209C15.525%2012.6037%2012.6037%2015.525%209%2015.525C5.39634%2015.525%202.475%2012.6037%202.475%209C2.475%205.39634%205.39634%202.475%209%202.475C12.6037%202.475%2015.525%205.39634%2015.525%209ZM9.17896%2016.873C9.11947%2016.8743%209.05981%2016.875%209%2016.875C4.65076%2016.875%201.125%2013.3492%201.125%209C1.125%204.65076%204.65076%201.125%209%201.125C13.3492%201.125%2016.875%204.65076%2016.875%209C16.875%2011.715%2015.501%2014.1092%2013.4105%2015.525H16.5C16.8728%2015.525%2017.175%2015.8272%2017.175%2016.2C17.175%2016.5728%2016.8728%2016.875%2016.5%2016.875H9.23129C9.21368%2016.875%209.19623%2016.8743%209.17896%2016.873Z'%20fill='white'%20fill-opacity='0.6'/%3e%3c/svg%3e"
+          />
+          Movie</a
+        >
+        <a href="#">
+          <img
+            src="data:image/svg+xml,%3csvg%20width='18'%20height='18'%20viewBox='0%200%2018%2018'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M2.43642%207.06155L3.06914%207.29671C3.18173%206.99376%203.06378%206.65351%202.78785%206.48525L2.43642%207.06155ZM1.40192%202.99999L1.98649%203.33749L1.40192%202.99999ZM15.5635%207.06124L15.212%206.48495C14.9361%206.65322%2014.8182%206.99348%2014.9308%207.29643L15.5635%207.06124ZM16.5981%203L16.0135%203.3375V3.3375L16.5981%203ZM12.4996%201.9013L12.1621%201.31674L12.1621%201.31674L12.4996%201.9013ZM11.4384%202.93639L11.2032%203.56911C11.5063%203.68176%2011.8468%203.56363%2012.0149%203.28744L11.4384%202.93639ZM6.56186%202.9363L5.98529%203.28729C6.15344%203.56351%206.49386%203.68167%206.79699%203.56903L6.56186%202.9363ZM5.50052%201.90101L5.16302%202.48557L5.16302%202.48557L5.50052%201.90101ZM2.78785%206.48525C1.7141%205.83049%201.35361%204.43367%201.98649%203.33749L0.817356%202.66249C-0.182679%204.3946%200.3866%206.60219%202.085%207.63786L2.78785%206.48525ZM2.675%209.5C2.675%208.7239%202.81448%207.98191%203.06914%207.29671L1.80371%206.8264C1.49395%207.65984%201.325%208.56095%201.325%209.5H2.675ZM9%2015.825C5.5068%2015.825%202.675%2012.9932%202.675%209.5H1.325C1.325%2013.7388%204.76122%2017.175%209%2017.175V15.825ZM15.325%209.5C15.325%2012.9932%2012.4932%2015.825%209%2015.825V17.175C13.2388%2017.175%2016.675%2013.7388%2016.675%209.5H15.325ZM14.9308%207.29643C15.1855%207.98171%2015.325%208.72379%2015.325%209.5H16.675C16.675%208.56083%2016.506%207.65959%2016.1962%206.82606L14.9308%207.29643ZM16.0135%203.3375C16.6463%204.43345%2016.2858%205.83014%2015.212%206.48495L15.9149%207.63754C17.6132%206.6019%2018.1826%204.3945%2017.1826%202.6625L16.0135%203.3375ZM12.8371%202.48587C13.949%201.84392%2015.3712%202.225%2016.0135%203.3375L17.1826%202.6625C16.1677%200.904566%2013.92%200.301837%2012.1621%201.31674L12.8371%202.48587ZM12.0149%203.28744C12.2104%202.96635%2012.4868%202.68812%2012.8371%202.48587L12.1621%201.31674C11.611%201.63495%2011.1721%202.07584%2010.8619%202.58534L12.0149%203.28744ZM9%203.175C9.77609%203.175%2010.5181%203.31446%2011.2032%203.56911L11.6735%202.30368C10.8401%201.99394%209.93902%201.825%209%201.825V3.175ZM6.79699%203.56903C7.48211%203.31443%208.224%203.175%209%203.175V1.825C8.06108%201.825%207.16008%201.9939%206.32674%202.30358L6.79699%203.56903ZM5.16302%202.48557C5.51336%202.68784%205.78978%202.96613%205.98529%203.28729L7.13843%202.58532C6.8282%202.0757%206.38928%201.63471%205.83802%201.31644L5.16302%202.48557ZM1.98649%203.33749C2.62892%202.22477%204.05119%201.84365%205.16302%202.48557L5.83802%201.31644C4.08011%200.301505%201.83236%200.904456%200.817356%202.66249L1.98649%203.33749Z'%20fill='white'%20fill-opacity='0.6'/%3e%3ccircle%20cx='6.25'%20cy='7.75'%20r='0.75'%20fill='white'%20fill-opacity='0.6'/%3e%3ccircle%20cx='11.75'%20cy='7.75'%20r='0.75'%20fill='white'%20fill-opacity='0.6'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M8.65%2011.0479L8.01119%2011.6441C7.86988%2011.776%207.86224%2011.9975%207.99413%2012.1388C8.12602%2012.2801%208.3475%2012.2878%208.48881%2012.1559L9%2011.6788L9.51119%2012.1559C9.6525%2012.2878%209.87398%2012.2801%2010.0059%2012.1388C10.1378%2011.9975%2010.1301%2011.776%209.98881%2011.6441L9.35%2011.0479V10.937C9.72967%2010.7952%2010%2010.4292%2010%2010H8C8%2010.4292%208.27033%2010.7952%208.65%2010.937V11.0479Z'%20fill='white'%20fill-opacity='0.6'/%3e%3c/svg%3e"
+          />
+          Animation</a
+        >
+        <a href="#"
+          ><img
+            src="data:image/svg+xml,%3csvg%20width='18'%20height='18'%20viewBox='0%200%2018%2018'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M4.81072%200.98757C5.09376%200.744961%205.51989%200.77774%205.7625%201.06078L8.0125%203.68578C8.03023%203.70647%208.04648%203.72792%208.06128%203.75H9.93872C9.95352%203.72792%209.96977%203.70647%209.9875%203.68578L12.2375%201.06078C12.4801%200.77774%2012.9062%200.744961%2013.1893%200.98757C13.4723%201.23018%2013.5051%201.65631%2013.2625%201.93935L11.7105%203.75H14.875C15.9796%203.75%2016.875%204.64543%2016.875%205.75V15.25C16.875%2016.3546%2015.9796%2017.25%2014.875%2017.25H3.125C2.02043%2017.25%201.125%2016.3546%201.125%2015.25V5.75C1.125%204.64543%202.02043%203.75%203.125%203.75H6.28949L4.7375%201.93935C4.49489%201.65631%204.52767%201.23018%204.81072%200.98757ZM3.125%205.1H14.875C15.234%205.1%2015.525%205.39102%2015.525%205.75V15.25C15.525%2015.609%2015.234%2015.9%2014.875%2015.9H3.125C2.76601%2015.9%202.475%2015.609%202.475%2015.25V5.75C2.475%205.39102%202.76601%205.1%203.125%205.1Z'%20fill='white'%20fill-opacity='0.6'/%3e%3cpath%20d='M11.1875%209.74223C11.7708%2010.079%2011.7708%2010.921%2011.1875%2011.2578L8.5625%2012.7733C7.97917%2013.1101%207.25%2012.6891%207.25%2012.0155V8.98446C7.25%208.31088%207.97917%207.8899%208.5625%208.22668L11.1875%209.74223Z'%20fill='white'%20fill-opacity='0.6'/%3e%3c/svg%3e"
+          />
+          Sport Live</a
+        >
+        <a href="#">
+          <img
+            src="data:image/svg+xml,%3csvg%20width='18'%20height='18'%20viewBox='0%200%2018%2018'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M8.325%205.14645C8.16883%205.05629%208.03028%204.93461%207.91932%204.7864C7.39614%204.08761%206.67002%203.65527%206.0036%203.65527H2.35002V12.9577H6.25689C7.00262%2012.9577%207.72322%2013.1884%208.325%2013.611L8.325%205.64937V5.14645ZM9.675%2013.611C10.2768%2013.1884%2010.9974%2012.9577%2011.7431%2012.9577H15.65V3.65527H12.006C11.3372%203.65527%2010.6015%204.09255%2010.0797%204.78776C9.96886%204.93537%209.83068%205.05657%209.675%205.14645V5.64937V13.611ZM9%203.97731C8.73429%203.62241%208.4079%203.29072%208.03598%203.01784C7.45136%202.58889%206.75426%202.30527%206.0036%202.30527H1.75031C1.33693%202.30527%201.00002%202.64218%201.00002%203.05557V13.5574C1.00002%2013.9707%201.33693%2014.3077%201.75031%2014.3077H6.25689C6.85426%2014.3077%207.42534%2014.5442%207.84828%2014.9672L8.46955%2015.5884C8.76346%2015.8823%209.23657%2015.8823%209.53048%2015.5884L10.1517%2014.9672C10.5747%2014.5442%2011.1458%2014.3077%2011.7431%2014.3077H16.2497C16.6631%2014.3077%2017%2013.9707%2017%2013.5574V3.05557C17%202.64218%2016.6631%202.30527%2016.2497%202.30527H12.006C11.2548%202.30527%2010.5536%202.59022%209.9659%203.01986C9.59278%203.29265%209.26539%203.62376%209%203.97731Z'%20fill='white'%20fill-opacity='0.6'/%3e%3c/svg%3e" />
+          Novel<img
+            class="pb-1 fire"
+            src="https://h5-static.aoneroom.com/oneroomStatic/public/_nuxt/novel-hot.D_FY4Np1.gif"
+        /></a>
+        <div class="text-center">
+          <img
+            class="code-scan"
+            src="https://h5-static.aoneroom.com/oneroomStatic/public/_nuxt/download-qr.DQvueFhl.png"
+          />
+          <p class="text-light round-image-text">GetMovieBox App</p>
+        </div>
+        <div class="text-center pb-3">
+          <img
+            class="text-light"
+            src="https://h5-static.aoneroom.com/oneroomStatic/public/_nuxt/apk-download.BsXVshUu.svg"
+          />
+        </div>
+        <div
+          class="btn gap-2 d-flex bg-dark text-light justify-content-center"
+          data-bs-toggle="dropdown"
+        >
+          <div class="pt-2">
+            <img
+              src="data:image/svg+xml,%3csvg%20width='12'%20height='12'%20viewBox='0%200%2012%2012'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='grommet-icons:language'%20clip-path='url(%23clip0_385_43611)'%3e%3cpath%20id='Vector'%20d='M6.07692%2011.1529C8.88077%2011.1529%2011.1538%208.87979%2011.1538%206.07595C11.1538%203.2721%208.88077%200.999023%206.07692%200.999023M6.07692%2011.1529C3.27308%2011.1529%201%208.87979%201%206.07595C1%203.2721%203.27308%200.999023%206.07692%200.999023M6.07692%2011.1529C7.46154%2011.1529%207.92308%208.84518%207.92308%206.07595C7.92308%203.30672%207.46154%200.999023%206.07692%200.999023M6.07692%2011.1529C4.69231%2011.1529%204.23077%208.84518%204.23077%206.07595C4.23077%203.30672%204.69231%200.999023%206.07692%200.999023M1.46154%207.9221H10.6923M1.46154%204.22979H10.6923'%20stroke='white'%20stroke-opacity='0.8'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_385_43611'%3e%3crect%20width='12'%20height='12'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e"
+            />
+          </div>
+          <select class="form-select lan text-light border-0">
+            <option selected>English</option>
+            <option>Français</option>
+            <option>हिन्दी</option>
+          </select>
+        </div>
+        <div class="pt-3">
+          <div class="d-flex gap-3 text-light round-image-text ps-3">
+            <div><p>WhatsApp</p></div>
+            <div><p>Telegram</p></div>
+          </div>
+          <div class="d-flex gap-3 text-light round-image-text ps-3">
+            <div><p>Facebook</p></div>
+            <div><p>TikTok</p></div>
+            <div><p>X</p></div>
+            <div><p>Email</p></div>
+          </div>
+          <div class="d-flex gap-5 text-light privacy ps-3">
+            <div><p>Privacy Policy</p></div>
+            <div><p>User Agreement</p></div>
+          </div>
+        </div>
+      </div>
+      <!-- Javascript -->
+      <button class="toggle-btn-1">☰</button>
+
+      <div class="d-flex gap-2 pt-5">
+        <a class="text-light" href="moviebox.html"><p class="pt-2">Home</p></a
+        ><i class="ri-arrow-right-s-line text-light pt-2"></i>
+        <p class="text-light pt-2">Riverdale</p>
+      </div>
+
+      <div class="d-flex px-5 pb-4">
+        <video
+          class="art-video"
+          preload="metadata"
+          crossorigin="anonymous"
+          width="95%"
+          autoplay=""
+          playsinline=""
+          controls
+          src="https://macdn.hakunaymatata.com/resource/5ebc493315e6abe936ade71fddebd7ab.mp4?Expires=1750326931&amp;Signature=gcT2U5GAMwMwW-h~KJy3H-nYMsTo1hp5UuAQEHeHJqV4g0yBnm9IeLZY3nTMQBw4PUyP7DiMR6UhFQAYCOEo~GaxAmK33cwl34wNDZzB3VP~qG9D~9AMd-WQsASF-S7JknpZpUKlDxWO6~Vf4sz7aYRcYAVgs09orvmyPtU6YFhVb1~JQiSwtUGmqvucgzTguqWxNVbFRC-jTUUzrgjhRYrNN0ZFd9J8Ao-ftZ3hCP5E9DikMGoVJsYnU1HXr-IgTorbS-Y1q4QwWWWPmJoOyVCpwToGgOJVqrSzCEwRa9olj8p9crKrFgZ9yFaUkuDBlXH9Iij8zfQFcPsbtgLuyw__&amp;Key-Pair-Id=KMHN1LQ1HEUPL"
+        >
+          <track
+            default=""
+            kind="metadata"
+            src="blob:https://moviebox.ng/19952671-79c3-4c91-bea4-0ab1be847768"
+            label="Artplayer"
+          />
+        </video>
+
+        <!-- resouces desktop -->
+        <div class="video-side d-none d-sm-block">
+          <h2 class="text-white mt-3">Resources</h2>
+          <p class="text-white opacity-50 ms-3">
+            Source: ailok.peBy Nadine Lustre
+          </p>
+          <div class="d-flex ms-2 gap-1 mt-3">
+            <button class="btn episode-btn season-button">S01</button>
+            <button class="btn episode-btn season-button active">S02</button>
+            <button class="btn text-center episode-btn season-button">
+              S03
+            </button>
+          </div>
+          <div class="d-flex gap-1 ms-2 mt-2">
+            <button class="btn episode-btn season">01</button>
+            <button class="btn episode-btn season active">02</button>
+            <button class="btn episode-btn season">03</button>
+            <button class="episode-btn text-light season">04</button>
+            <button class="episode-btn text-light season">05</button>
+            <button class="episode-btn text-light season">06</button>
+            <button class="episode-btn text-light season">07</button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="d-flex gap-5 ps-3 d-md-none d-sm-block text-center text-light"
+      >
+        <div><i class="ri-reset-right-line"></i></div>
+        <div><i class="ri-download-2-line"></i></div>
+        <div><i class="ri-share-2-fill"></i></div>
+        <div><i class="ri-skip-left-fill"></i></div>
+        <div><i class="ri-skip-right-fill"></i></div>
+      </div>
+      <div
+        class="movie-info ps-3 d-flex align-items-center gap-2 flex-wrap d-md-none d-sm-block"
+      >
+        <span class="rating d-flex align-items-center">
+          <span class="star-icon">&#9733;</span>
+          <!-- Unicode star -->
+          7.5
+        </span>
+        <span>|</span>
+        <span>2025</span>
+        <span>|</span>
+        <span>United States</span>
+        <span>|</span>
+        <span>10+ subtitles</span>
+      </div>
+      <!-- resouces mobile -->
+      <div class="container d-md-none d-sm-block ps-3">
+        <h5 class="text-light">Resources</h5>
+        <div class="d-flex justify-content-between">
+          <div class="text-light">rupa/-peeks By rua.lilaby</div>
+          <div class="dropdown season-dropdown">
+            <select class="form-select">
+              <option selected>Season 02</option>
+              <option>Season 01</option>
+              <option>Season 03</option>
+            </select>
+          </div>
+        </div>
+        <div class="align-items-center pt-2">
+          <button class="episode-btn">01</button>
+          <button class="episode-btn">02</button>
+          <button class="episode-btn">03</button>
+          <button class="episode-btn">04</button>
+          <button class="episode-btn active">05</button>
+          <button class="episode-btn">06</button>
+          <button class="episode-btn">All</button>
+        </div>
+      </div>
+      <div class="container mx-md-5">
+        <div class="row">
+          <div class="col-12 col-md-8 col-lg-9">
+            <div class="row d-none d-sm-block">
+              <div class="d-flex">
+                <div class="">
+                  <div class="foreign-text">
+                    <div class="d-flex gap-5 justify-content-between">
+                      <div>
+                        <h5 class="text-light">Ginny & Georgia</h5>
+                        <p class="side-text">2025-01-01</p>
+                      </div>
+                      <div class="text-light pt-3">|</div>
+                      <div><h5 class="text-light pt-3">7.4</h5></div>
+                    </div>
+                    <p class="side-text">
+                      Angsty 15-year-old Ginny Miller often feels more mature
+                      than her 30-year-old mother, the irresistible and dynamic
+                      Georgia Miller.
+                    </p>
+                  </div>
+                  <div class="pt-2 d-flex gap-3">
+                    <div>
+                      <button
+                        class="btn rounded bg-gradient text-light d-flex gap-2"
+                      >
+                        <i class="ri-download-line"></i>
+                        <h6>Download</h6>
+                      </button>
+                    </div>
+                    <div>
+                      <button
+                        class="btn rounded bg-gradient text-light d-flex gap-2"
+                      >
+                        <i class="ri-share-2-line"></i>
+                        <h6>Share</h6>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="ps-5">
+                  <div class="foreign-text side-text">
+                    <div class="d-flex">
+                      <i class="ri-message-3-fill pe-2"></i>
+                      <p>movie icon United States / Comedy / Drama</p>
+                    </div>
+                    <div class="d-flex">
+                      <i class="ri-terminal-window-fill"></i>
+                      <p class="ps-2">
+                        movies subtitles Subtitles:
+                        English,Español,Filipino,Français,Indonesian,Kiswahili,Malay,Português,Türkçe,tiếng
+                        Việt,Русский,اَلْعَرَبِيَّةُ,اُردُو,فارسی,هَرْشٜن
+                        هَوْس,বাংলা,ਪੰਜਾਬੀ,ภาษาไทย,中文
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row d-none d-sm-block">
+              <h3 class="text-light">Top cast(10)</h3>
+              <div class="overflow-x-scroll d-flex d-sm-flex gap-2">
+                <div class="col-md col-sm">
+                  <img
+                    class="square-image-pg2"
+                    src="https://pacdn.aoneroom.com/image/2022/10/14/e2c51f6d92c9876442abd1026bd59769.jpg?x-oss-process=image/resize%2Cw_200"
+                  />
+
+                  <p class="movie-name">The Last of Us</p>
+                </div>
+                <div class="col-md col-sm">
+                  <img
+                    class="square-image-pg2"
+                    src="https://pacdn.aoneroom.com/image/2022/10/14/e2c51f6d92c9876442abd1026bd59769.jpg?x-oss-process=image/resize%2Cw_200"
+                  />
+                  <p class="movie-name">Forever</p>
+                </div>
+                <div class="col-md col-sm">
+                  <img
+                    class="square-image-pg2"
+                    src="https://pacdn.aoneroom.com/image/2022/10/14/e2c51f6d92c9876442abd1026bd59769.jpg?x-oss-process=image/resize%2Cw_200"
+                  />
+                  <p class="movie-name">The Accountant</p>
+                </div>
+                <div class="col-md col-sm">
+                  <img
+                    class="square-image-pg2"
+                    src="https://pacdn.aoneroom.com/image/2022/10/13/cb1cf3c03cdbaeee19aad4098342fedc.jpg?x-oss-process=image/resize%2Cw_200"
+                  />
+                  <p class="movie-name">The end</p>
+                </div>
+                <div class="col-md col-sm">
+                  <img
+                    class="square-image-pg2"
+                    src="https://pacdn.aoneroom.com/image/2022/10/13/cb1cf3c03cdbaeee19aad4098342fedc.jpg?x-oss-process=image/resize%2Cw_200"
+                  />
+                  <p class="movie-name">The Last of Us</p>
+                </div>
+                <div class="col-md col-sm">
+                  <img
+                    class="square-image-pg2"
+                    src="https://pacdn.aoneroom.com/image/2022/10/13/cb1cf3c03cdbaeee19aad4098342fedc.jpg?x-oss-process=image/resize%2Cw_200"
+                  />
+                  <p class="movie-name">Victory at last</p>
+                </div>
+                <div class="col-md col-sm">
+                  <img
+                    class="square-image-pg2"
+                    src="https://pacdn.aoneroom.com/image/2024/10/06/47081b14292b2e3c8f103c81bbfdb498.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                  <p class="movie-name">The Last of Us</p>
+                </div>
+                <div class="col-md col-sm">
+                  <img
+                    class="square-image-pg2"
+                    src="https://pacdn.aoneroom.com/image/2024/09/20/1688cef35132899ae60715b94774dd01.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                  <p class="movie-name text-center">The Last of Us</p>
+                </div>
+                <div class="col-md col-sm">
+                  <img
+                    class="square-image-pg2"
+                    src="https://pacdn.aoneroom.com/image/2024/10/06/47081b14292b2e3c8f103c81bbfdb498.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                  <p class="movie-name">The Last of Us</p>
+                </div>
+                <div class="col-md col-sm">
+                  <img
+                    class="square-image-pg2"
+                    src="https://pacdn.aoneroom.com/image/2024/09/20/1688cef35132899ae60715b94774dd01.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                  <p class="movie-name text-center">The Last of Us</p>
+                </div>
+                <div class="col-md col-sm">
+                  <img
+                    class="square-image-pg2"
+                    src="https://pacdn.aoneroom.com/image/2022/10/14/e2c51f6d92c9876442abd1026bd59769.jpg?x-oss-process=image/resize%2Cw_200"
+                  />
+
+                  <p class="movie-name">The Last of Us</p>
+                </div>
+                <div class="col-md col-sm">
+                  <img
+                    class="square-image-pg2"
+                    src="https://pacdn.aoneroom.com/image/2022/10/14/e2c51f6d92c9876442abd1026bd59769.jpg?x-oss-process=image/resize%2Cw_200"
+                  />
+
+                  <p class="movie-name">The Last of Us</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- mobile -->
+
+            <div class="row">
+              <h3 class="text-light">For you</h3>
+
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/01/13/395d1493e21c0b4e3f7d3d56ca2bd438.jpg?x-oss-process=image/resize%2Cw_200"
+                  />
+                </div>
+                  <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            6.3
+                          </span>
+                        </div>
+                        </div>
+
+                <p class="movie-name">The Last of Us</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/01/13/395d1493e21c0b4e3f7d3d56ca2bd438.jpg?x-oss-process=image/resize%2Cw_200"
+                  />
+                </div>  <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            4.8
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">Forever</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/01/13/395d1493e21c0b4e3f7d3d56ca2bd438.jpg?x-oss-process=image/resize%2Cw_200"
+                  />
+                </div>
+                  <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            3.9
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The Accountant</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/11/18/2f254172c9e8425cd86e4e531b2ceb1b.jpeg?x-oss-process=image/resize%2Cw_200"
+                  />
+                </div>
+                  <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            6.6
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The end</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/11/18/2f254172c9e8425cd86e4e531b2ceb1b.jpeg?x-oss-process=image/resize%2Cw_200"
+                  />
+                </div>
+                  <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            4.7
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The Last of Us</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/11/18/2f254172c9e8425cd86e4e531b2ceb1b.jpeg?x-oss-process=image/resize%2Cw_200"
+                  />
+                </div>
+                  <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            6.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">Victory at last</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/10/06/47081b14292b2e3c8f103c81bbfdb498.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>  <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            4.2
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The Last of Us</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/09/20/1688cef35132899ae60715b94774dd01.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>  <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            6.8
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name text-center">The Last of Us</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/02/23/d6b21225545b41655b30a4cc4dcbc90e.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                  <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            6.3
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The Accountant</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                  <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/02/23/d6b21225545b41655b30a4cc4dcbc90e.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                  <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            6.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The Accountant</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/08/26/2fdc03a61e50cbb147205080b0a9bb11.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                 <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.3
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The end</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/08/26/2fdc03a61e50cbb147205080b0a9bb11.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                 <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            6.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The end</p>
+              </div>
+            </div>
+
+            <!-- mobile view -->
+
+            <div class="row pt-3">
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/04/02/ca0aa0084c32d1341a23c9af26e5cd18.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.1
+                          </span>
+                        </div>
+</div>
+                <p class="movie-name">The Last of Us</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/08/28/adf5c815f2bba67c572e2ba9b2d7e294.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">Forever</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/02/23/d6b21225545b41655b30a4cc4dcbc90e.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The Accountant</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/08/26/2fdc03a61e50cbb147205080b0a9bb11.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The end</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/07/18/1f153001070e30c3d9162ad6ca8bd8d6.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The Last of Us</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                   
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/11/13/348ef56b9045bd5e7431afb340b462e6.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">Victory at last</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/10/06/47081b14292b2e3c8f103c81bbfdb498.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The Last of Us</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/09/20/1688cef35132899ae60715b94774dd01.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name text-center">The Last of Us</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/02/23/d6b21225545b41655b30a4cc4dcbc90e.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The Accountant</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/02/23/d6b21225545b41655b30a4cc4dcbc90e.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The Accountant</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/08/26/2fdc03a61e50cbb147205080b0a9bb11.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The end</p>
+              </div>
+              <div class="col-4 col-sm-4 col-md-3 col-lg-2">
+                 <div class="card position-relative border-0">
+                <div class="for-you-box img">
+                  <img
+                    class="img-fluid"
+                    src="https://pacdn.aoneroom.com/image/2024/08/26/2fdc03a61e50cbb147205080b0a9bb11.jpg?x-oss-process=image/resize%2Cw_300"
+                  />
+                </div>
+                <div>
+                          <span
+                            class="rating ps-5 badge position-absolute bottom-0 end-0 "
+                          >
+                            7.1
+                          </span>
+                        </div>
+                        </div>
+                <p class="movie-name">The end</p>
+              </div>
+            </div>
+          </div>
+          <!-- Hot movies -->
+          <div class="col-12 col-md-4 col-lg-3 ps-5">
+            <div
+              class="row card border-white border-1 border-opacity-25 bg-black d-none d-sm-block"
+            >
+              <h3 class="text-light p-2 hotmovies-background">Hot Movies</h3>
+              <div class="">
+                <div class="col-md col-sm">
+                  <div class="d-flex">
+                    <div>
+                      <img
+                        class="side-image"
+                        src="https://pacdn.aoneroom.com/image/2022/09/02/b570ec4d12a505624693f4d286f23c02.jpg?x-oss-process=image/resize%2Cw_200"
+                      />
+                    </div>
+                    <div class="d-block ps-3 side-text">
+                      <div>
+                        <h5 class="text-light text-start">Final Destiny</h5>
+                      </div>
+                      <div class="side-text">
+                        <p>2025 · United States · Comedy · Fantasy · Horror</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md col-sm">
+                  <div class="d-flex">
+                    <div>
+                      <img
+                        class="side-image"
+                        src="https://pacdn.aoneroom.com/image/2022/09/02/b570ec4d12a505624693f4d286f23c02.jpg?x-oss-process=image/resize%2Cw_200"
+                      />
+                    </div>
+
+                    <div class="d-block ps-3 side-text">
+                      <div>
+                        <h5 class="text-light text-start">Shadow force</h5>
+                      </div>
+                      <div class="side-text">
+                        <p>2025 · United States · Action · Crime · Drama</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md col-sm">
+                  <div class="d-flex">
+                    <div>
+                      <img
+                        class="side-image"
+                        src="https://pacdn.aoneroom.com/image/2022/09/02/b570ec4d12a505624693f4d286f23c02.jpg?x-oss-process=image/resize%2Cw_200"
+                      />
+                    </div>
+                    <div class="d-block ps-3">
+                      <div>
+                        <h5 class="text-light text-start">Love Hurts</h5>
+                      </div>
+                      <div class="side-text">
+                        <p>2025 · United States · Action · Crime · Drama</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md col-sm">
+                  <div class="d-flex">
+                    <div>
+                      <img
+                        class="side-image"
+                        src="https://pacdn.aoneroom.com/image/2022/09/02/5c271729af84f5ff64b45c5c5d8e00fc.jpg?x-oss-process=image/resize%2Cw_200"
+                      />
+                    </div>
+                    <div class="d-block ps-3">
+                      <div>
+                        <h5 class="text-light text-start">Doctor who</h5>
+                      </div>
+                      <div class="side-text">
+                        <p>2025 · United States · Action · Crime · Drama</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md col-sm">
+                  <div class="d-flex">
+                    <div>
+                      <img
+                        class="side-image"
+                        src="https://pacdn.aoneroom.com/image/2022/09/02/5c271729af84f5ff64b45c5c5d8e00fc.jpg?x-oss-process=image/resize%2Cw_200"
+                      />
+                    </div>
+                    <div class="d-block ps-3">
+                      <div>
+                        <h5 class="text-light text-start">Justice League</h5>
+                      </div>
+                      <div class="side-text">
+                        <p>2025 · United States · Action · Crime · Drama</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md col-sm">
+                  <div class="d-flex">
+                    <div>
+                      <img
+                        class="side-image"
+                        src="https://pacdn.aoneroom.com/image/2022/09/02/5c271729af84f5ff64b45c5c5d8e00fc.jpg?x-oss-process=image/resize%2Cw_200"
+                      />
+                    </div>
+                    <div class="d-block ps-3">
+                      <div>
+                        <h5 class="text-light text-start">Love in contract</h5>
+                      </div>
+                      <div class="side-text">
+                        <p>2025 · United States · Action · Crime · Drama</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md col-sm">
+                  <div class="d-flex">
+                    <div>
+                      <img
+                        class="side-image"
+                        src="https://pacdn.aoneroom.com/image/2024/04/02/ca0aa0084c32d1341a23c9af26e5cd18.jpg?x-oss-process=image/resize%2Cw_300"
+                      />
+                    </div>
+                    <div class="d-block ps-3">
+                      <div>
+                        <h5 class="text-light text-start">The Jungle</h5>
+                      </div>
+                      <div class="side-text">
+                        <p>2025 · United States · Action · Crime · Drama</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md col-sm">
+                  <div class="d-flex">
+                    <div>
+                      <img
+                        class="side-image"
+                        src="https://pacdn.aoneroom.com/image/2024/04/02/ca0aa0084c32d1341a23c9af26e5cd18.jpg?x-oss-process=image/resize%2Cw_300"
+                      />
+                    </div>
+                    <div class="d-block ps-3">
+                      <div>
+                        <h5 class="text-light text-start">Extoriterial</h5>
+                      </div>
+                      <div class="side-text">
+                        <p>2025 · United States · Action · Crime · Drama</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md col-sm">
+                  <div class="d-flex">
+                    <div>
+                      <img
+                        class="side-image"
+                        src="https://pacdn.aoneroom.com/image/2024/04/02/ca0aa0084c32d1341a23c9af26e5cd18.jpg?x-oss-process=image/resize%2Cw_300"
+                      />
+                    </div>
+                    <div class="d-block ps-3">
+                      <div>
+                        <h5 class="text-light text-start">The Accountant 2</h5>
+                      </div>
+                      <div class="side-text">
+                        <p>2025 · United States · Action · Crime · Drama</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
